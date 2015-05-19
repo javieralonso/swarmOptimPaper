@@ -1,0 +1,47 @@
+% !TEX root = ../swarmOptimTutorial.tex
+
+\section{Optimal control and optimization tools}\label{sec:3}
+
+Introduce optimization types and seminal/book references
+
+\subsection{Optimal control and dynamic programming}
+
+LQR / Lyapunov
+
+MPC
+
+\subsection{Optimization}
+
+The goal of an optimization problem is to compute the values of a set of variables $\x \in \X$ which minimize an objective function subject to a set of inequality and equality constraints.
+\e
+\begin{array}{rlll}
+\x^* := & \arg \underset{\x}{\min} & f(\x) 		& \\
+ 	& \tn{subject to} 		& g_i(\x) \leq 0 	& \forall i \in \{1,\dots, n_{ineq} \} \\
+  	&	  		  		& h_i(\x) = 0 	& \forall i \in \{1,\dots, n_{eq} \}
+ \end{array}
+\ee
+
+\subsubsection{Continuous variables}
+$\x \in \R$.
+
+Convex optimization: LP, QP, SDP
+
+Non-convex optimization: SCP (local), search techniques (global)
+
+\subsubsection{Integer variables}
+
+Some $\x_j$ are integer, this is $\x_j \in \N$, or typically binary variables $\x_j \in {0,1}$.
+
+Non-convex MIP
+
+BRANCH-AND-BOUND, 
+
+IMPLICIT ENUMERATION, for integer programs with only binary variables
+
+
+
+
+\subsubsection{??}
+Combinatorial optimization with heuristics
+
+
