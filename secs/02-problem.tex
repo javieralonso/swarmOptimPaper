@@ -2,12 +2,15 @@
 
 \section{Problem definition}\label{sec:2}
 
-\subsection{Multi-robot motion planning}
-Motion planning is concerned with computing a (lowest cost) path or trajectory between two configurations embedded in a cost field, while taking into account motion constraints, static obstacles, and dynamic objects.  \citet{lavalle06} provides a very good introductory textbook to the field of motion planning, complemented with the recent review on remaining challenges~\citep{LaValle:2011wc}. Due to the complexity of the problem, it is typically divided in two steps, global motion planning that computes a trajectory from the initial to the goal configuration and local motion planning (or collision avoidance) which computes at a higher frequency a feasible trajectory for a short period of time. 
+We consider four distinct problems as follows.
 
+\subsection{Multi-robot motion planning}
+Motion planning is concerned with computing a (lowest cost) path or trajectory between two configurations embedded in a cost field, while taking into account motion constraints, static and dynamic obstacles \citet{lavalle06}.
+% provides a very good introductory textbook to the field of motion planning, complemented with the recent review on remaining challenges~\citep{LaValle:2011wc}. 
+Due to the complexity of the problem, it is typically divided in two steps, global motion planning that computes a trajectory from the initial to the goal configuration and local motion planning (or collision avoidance) which computes at a higher frequency a feasible trajectory for a short period of time. The Multi-Robot Motion Planning problem consists on computing collision free trajectories for $n$ robots from their initial configuration to a final one.
 
 \subsection{Formation planning}
-JA
+A formation can be defined in a global frame by a set of target robot positions, for example to form a triangle. For distributed systems, though, a formation is typically defined by target relative positions between the robots. In this later case, the robots may freely agree on the position, size and orientation of the formation. Two problems arise, (a) convergence to a target formation from an arbitrary initial configuration of the robots, and (b) collision-free navigation of the robots in a workspace while maintaining a target formation.
 
 \subsection{Task assignment}
 KS

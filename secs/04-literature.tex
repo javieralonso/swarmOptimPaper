@@ -4,12 +4,10 @@
 % Intro
 \section{Overview of state of the art}\label{sec:4}
 
-\textbf{Miscellaneous}. 
-Iterative optimization for optimal coverage~\cite{cortes04} and~\cite{Schwager:2009fz}. Rebalancing and mobility-on-demand formulated as linear programs~\cite{Smith:2013fa}.
+Next, we give an overview of the state of the art in optimization and optimal control methods for solving the multi-robot problems described in Section~\ref{sec:2}, leveraging on the tools of Section~\ref{sec:3}.
 
-\textbf{Goal assignment}.
-Good overview with taxonomy and link to optimization~\cite{Gerkey:2004il}. For ST-SR (single robot per task and single task per robot) optimal~\cite{kuhn55} or suboptimal auction algorithm~\cite{Bertsekas:1992wx}.
-Combined with motion planning towards concurrent planning and assignment~\cite{Turpin:2014bu} and with local collision avoidance and optimal coverage towards pattern formation with large teams of robots~\cite{alonsomora12ijrr}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Multi-robot motion planning}
 
 \textbf{Collision avoidance}.
 Optimal control laws~\cite{Hoffmann:2008vl}. Optimization-based methods include a centralized nonlinear program~\cite{Raghunathan:2004ga} which scales poorly with the number of agents and a mixed integer linear program (MILP) with constraints in dynamics~\cite{Kuwata:2007vq}.
@@ -20,6 +18,9 @@ As an alternative in multi-agent dynamic scenarios, optimization in velocity spa
 Off-line non-convex optimizations include a mixed integer approach~\cite{Mellinger:2012fi, Kushleyev:2012wy} and a discretized linear temporal logic approach~\cite{Saha:2014vi}. They provide global guarantees but scale poorly with the number of robots. 
 Non-convex problems can also be solved via Sequential Convex Programming, which has recently been employed~\cite{augugliaro12} to compute collision-free trajectories for multiple UAVs in obstacle-free environments. An iterative message passing algorithm~\cite{Bento:2013td}. Integer linear program for planning on graphs~\cite{Yu:2013ij}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formation planning}
+
 \textbf{Formation planning}.
 Convex optimization frameworks for navigating in formation include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, distributed quadratic optimization~\cite{AlonsoMora:2015wi} without global coordination and limited adaptation of the formation,
 % polynomial signals as trajectories to optimize~\cite{} with only a few robots and simple obstacles, and 
@@ -27,6 +28,21 @@ and second order cone programming~\cite{Derenick:ha} which triangulates the free
 
 \textbf{Formation control} Rigidity theory~\cite{Eren.Belhumeur.ea:02} and Morse theory~\cite{Anderson:11} have been primarily used for formation control. These theories have been successful in establishing (global) stability of a few specific formations, e.g., triangular formations~\cite{Cao.Morse.ea:11}, tetrahedral formations~\cite{Anderson.Yu.ea:10}, etc.
 
-\textbf{Rendezvous/ Flocking/ Consensus} The basic idea is the alignment of states (position, heading angle, memory state). Key references are \cite{Cortes.Martinez.ea:06,Jadbabaie.Lin.ea:03}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Task assignment}
+
+\textbf{Goal assignment}.
+Good overview with taxonomy and link to optimization~\cite{Gerkey:2004il}. For ST-SR (single robot per task and single task per robot) optimal~\cite{kuhn55} or suboptimal auction algorithm~\cite{Bertsekas:1992wx}.
+Combined with motion planning towards concurrent planning and assignment~\cite{Turpin:2014bu} and with local collision avoidance and optimal coverage towards pattern formation with large teams of robots~\cite{alonsomora12ijrr}.
 
 \textbf{Dynamic vehicle routing} \cite{Bullo.Frazzoli.ea:PIEEE10}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Surveillance and monitoring tasks}
+
+
+\textbf{Miscellaneous}. 
+Iterative optimization for optimal coverage~\cite{cortes04} and~\cite{Schwager:2009fz}. Rebalancing and mobility-on-demand formulated as linear programs~\cite{Smith:2013fa}.
+
+\textbf{Rendezvous/ Flocking/ Consensus} The basic idea is the alignment of states (position, heading angle, memory state). Key references are \cite{Cortes.Martinez.ea:06,Jadbabaie.Lin.ea:03}.
+
