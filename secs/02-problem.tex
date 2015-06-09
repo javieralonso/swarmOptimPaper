@@ -13,7 +13,9 @@ Due to the complexity of the problem, it is typically divided in two steps, glob
 A formation can be defined in a global frame by a set of target robot positions, for example to form a triangle. For distributed systems, though, a formation is typically defined by target relative positions between the robots. In this later case, the robots may freely agree on the position, size and orientation of the formation. Two problems arise, (a) convergence to a target formation from an arbitrary initial configuration of the robots, and (b) collision-free navigation of the robots in a workspace while maintaining a target formation.
 
 \subsection{Task assignment}
-KS
+Consider $m$ mobile agents and $n$ tasks, where in general $n > m$. Let $a_i$, $i \in \until{m}$, denote the assignment of the $i$the vehicle. For example, $a_1=2$ means that vehicle $1$ is assigned to task $2$. In static assignment problems, the suitability of a given assignment profile $a$ is given by utility associated with the assignment profile, denoted as $U(a)$. The formulation of utility functions incorporates, e.g., cumulative distance traveled by all vehicles, and even infeasibility of a given assignment profile. The static assignment problem is therefore a combinatorial optimization problem concerned with selecting an assignment profile that maximizes the utility.  
+
+The dynamic task assignment problem concerns with the setting when task locations, vehicle capabilities, etc. are all time varying. In this case, the performance is measured by time-aggregated behavior.  
 
 \subsection{Surveillance and monitoring tasks}
 KS
