@@ -8,14 +8,40 @@ Introduce optimization types and seminal/book references
 \subsection{Optimal control and dynamic programming}
 
 \subsubsection{Optimal Control}
-Consider a controlled dynamical system: $\dot{x}=f(x,u)$, $x(0)=x^0$. Then optimal control corresponds to finding a control $u^*$ which maximizes the payoff functional
+Consider a controlled dynamical system: $\dot{x}=f(x,u)$, $x(0)=x^0$. Then optimal control corresponds to finding a control $u^*$ which minimizes the cost functional
 $$
-P[u(.)]:=\int_0^T r\left(x(t), u(t) \right) dt + g(x(T)),
+J[u(.)]:=\int_0^T r\left(x(t), u(t) \right) dt + g(x(T)),
 $$
-where $r(.,.)$ is the running payoff, $g(.)$ the terminal payoff, and $T>0$ is the terminal time. 
+where $r(.,.)$ is the running cost, $g(.)$ the terminal cost, and $T>0$ is the terminal time. Typically, the minimization is performed under state space and control constraints: $x(t) \in \mc X$ and $u(t) \in \mc U$ for all $t \in [0,T]$. 
+
+In the discrete time and infinite horizon formulation, the dynamic programming formulation is given by 
+\begin{align*}
+\text{minimize} & \quad J = \sum_{t=0}^{\infty} r(x(t),u(t)) \\
+\text{subject to} & \quad u(t) \in \mc U, \, x(t) \in \mc X, \quad t = 0, 1, \ldots \\
+& \quad x(t+1) = A x(t) + B u(t), \quad t = 0, 1, \ldots \\
+& \quad x(0) = x^0
+\end{align*}
+
+The dynamic programming approach involves solving for a value function $V(x^0)$ as a function of the initial state $x^0$ that satisfies the Bellman or dynamic programming equation:
+$$
+V(x^0)=\inf \left\{r (x^0,w) + V(Ax^0+B w), \, \, w \in \mc U, \, Ax^0 + Bw \in \mc Z  \right \}.
+$$
+The optimal control $u$ at time $t$ is given by 
+$$
+u^*(t) = \argmin_{w \in \mc U, \, A x(t) + B w \in \mc X} \left(r(x(t),w) + V(A x(t) + Bw) \right)
+$$
 
 \subsubsection{Model Predictive Control}
-the optimal control inputs are obtained by solving an optimization problem with an approximated model of the system for a fixed time horizon and applying the first input, see~\citet{Maciejowski:2002wc, Camacho:2004tg, Borrelli:2011uw} for details.
+At each time $t$, one solves the following problem:
+\begin{align*}
+\text{minimize} & \quad \sum_{\tau=t}^{t+T} r(x(\tau),u(\tau)) \\
+\text{subject to} & \quad u(\tau) \in \mc U, \, x(\tau) \in \mc X, \, \, \tau = t, \ldots, t+ T \\
+& \quad x(\tau +1) = A x(\tau) + B u(\tau), \, \, \tau = t, \ldots, t+ T \\
+& \quad x(t+T)= 0
+\end{align*}
+If $\tilde{x}(t+1), \ldots, \tilde{x}(t+T), \tilde{u}(t), \ldots, \tilde{u}(t+T-1)$ is the optimal plan of action, then the optimal control at time $t$ is given by $u^*(t)=\tilde{u}(t)$. The above minimization problem will be resolved at time $t+1$, which will then yield the optimal control for time $t+1$.
+More details can be obtained in
+\citet{Maciejowski:2002wc, Camacho:2004tg, Borrelli:2011uw}.
 
 \subsection{Constrained optimization}
 
