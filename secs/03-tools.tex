@@ -1,14 +1,20 @@
 % !TEX root = ../swarmOptimTutorial.tex
 
+
 \section{Optimal control and optimization tools}\label{sec:3}
 
 Introduce optimization types and seminal/book references
 
 \subsection{Optimal control and dynamic programming}
 
-\subsubsection{LQR / Lyapunov}
+\subsubsection{Optimal Control}
+Consider a controlled dynamical system: $\dot{x}=f(x,u)$, $x(0)=x^0$. Then optimal control corresponds to finding a control $u^*$ which maximizes the payoff functional
+$$
+P[u(.)]:=\int_0^T r\left(x(t), u(t) \right) dt + g(x(T)),
+$$
+where $r(.,.)$ is the running payoff, $g(.)$ the terminal payoff, and $T>0$ is the terminal time. 
 
-\subsubsection{Model Predictive Control MPC}
+\subsubsection{Model Predictive Control}
 the optimal control inputs are obtained by solving an optimization problem with an approximated model of the system for a fixed time horizon and applying the first input, see~\citet{Maciejowski:2002wc, Camacho:2004tg, Borrelli:2011uw} for details.
 
 \subsection{Constrained optimization}

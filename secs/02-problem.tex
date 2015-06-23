@@ -2,15 +2,19 @@
 
 \section{Problem definition}\label{sec:2}
 
-We consider four distinct problems as follows.
+We describe four important problems for multi-robot teams. First, consider $m$ mobile agents. 
 
 \subsection{Multi-robot motion planning}
-Motion planning is concerned with computing a (lowest cost) path or trajectory between two configurations embedded in a cost field, while taking into account motion constraints, static and dynamic obstacles \citet{lavalle06}.
+Let $\z^{ini}_i$ denote the initial state of each agent $i$ and consider a desired set of final configurations $\{\z^{fin}_1,  \dots, \z^{fin}_m \}$ embedded in a cost field.
+The goal is to compute for each agent a path or trajectory $\gamma$, this is a set of states, between the initial and desired configurations such that a cost $C(\gamma)$ is minimized and static/dynamic obstacles are avoided, as well as collisions between the agents in the group~\citet{lavalle06}. The trajectory $\gamma$ can be further required to satisfy the motion model of the agents given by their kinematic or dynamic constraints.
+% and denoted by $\dot{\z}_i = \mathcal{f}(\z_i, \bu)$ with $\bu$ the input to the system.
 % provides a very good introductory textbook to the field of motion planning, complemented with the recent review on remaining challenges~\citep{LaValle:2011wc}. 
-Due to the complexity of the problem, it is typically divided in two steps, global motion planning that computes a trajectory from the initial to the goal configuration and local motion planning (or collision avoidance) which computes at a higher frequency a feasible trajectory for a short period of time. The Multi-Robot Motion Planning problem consists on computing collision free trajectories for $n$ robots from their initial configuration to a final one.
+A distinction can be made between \emph{global motion planning} that computes a trajectory from the initial to the desired configuration and \emph{local motion planning} (or collision avoidance) which computes a feasible trajectory for a short period of time and distance.
 
 \subsection{Formation planning}
-A formation can be defined in a global frame by a set of target robot positions, for example to form a triangle. For distributed systems, though, a formation is typically defined by target relative positions between the robots. In this later case, the robots may freely agree on the position, size and orientation of the formation. Two problems arise, (a) convergence to a target formation from an arbitrary initial configuration of the robots, and (b) collision-free navigation of the robots in a workspace while maintaining a target formation.
+A formation $\mathcal{F} = \{ \z_1,  \dots, \z_m \}$ is defined as a set of mobile agent configurations such that given inter-agent relationships are satisfied, for example to form an equilateral triangle all distances must be equal.
+%A target formation is typically defined by target relative positions between the robots. In this later case, the robots may freely agree on the position, size and orientation of the formation.
+Two main problems have been studied. First, convergence to a target formation from an arbitrary initial configuration of the robots. And, second, collision-free navigation of the agents in a workspace while maintaining a target formation. Furthermore, the mobile agents might be subject to kinematic or dynamic constraints limiting their motion.
 
 \subsection{Task assignment}
 Consider $m$ mobile agents and $n$ tasks, where in general $n > m$. Let $a_i$, $i \in \until{m}$, denote the assignment of the $i$the vehicle. For example, $a_1=2$ means that vehicle $1$ is assigned to task $2$. In static assignment problems, the suitability of a given assignment profile $a$ is given by utility associated with the assignment profile, denoted as $U(a)$. The formulation of utility functions incorporates, e.g., cumulative distance traveled by all vehicles, and even infeasibility of a given assignment profile. The static assignment problem is therefore a combinatorial optimization problem concerned with selecting an assignment profile that maximizes the utility.  
