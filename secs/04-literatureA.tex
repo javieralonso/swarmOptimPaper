@@ -9,21 +9,43 @@ Next, we give an overview of the state of the art in optimization and optimal co
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Multi-robot motion planning}
 
-\textbf{Collision avoidance}.
-Optimal control laws~\cite{Hoffmann:2008vl}. Optimization-based methods include a centralized nonlinear program~\cite{Raghunathan:2004ga} which scales poorly with the number of agents and a mixed integer linear program (MILP) with constraints in dynamics~\cite{Kuwata:2007vq}.
- Alternatively, decentralized nonlinear model predictive control using potential functions for collision avoidance~\cite{Shim:2003ih} has been explored, but without guarantees.
-As an alternative in multi-agent dynamic scenarios, optimization in velocity space, either convex~\cite{snape09, AlonsoMora:2014kb, alonsomora2015auro} or non-convex MIQP~\cite{alonsomora13icra}, which build on the Linear Program for reciprocal collision avoidance first presented by~\cite{vandenberg09}.
+\subsubsection{Collision avoidance}
+A large body of decentralized collision avoidance approaches exist for multi-agent scenarios.
+Optimal control strategies include~\cite{Hoffmann:2008vl}, which uses a rule-based switching control law derived using optimal control and reachability analysis for systems with second order dynamics and acceleration constraints.
+Alternatively, decentralized nonlinear model predictive control using potential functions for collision avoidance~\cite{Shim:2003ih} has also been explored.
+As an alternative to traditional control approaches, \cite{vandenberg09} presented a method where agents share the avoidance effort, solved via a Linear Program in velocity space. This method was later extended to agents with dynamics by~\cite{snape09, alonsomora10dars, AlonsoMora:2014kb} and~\cite{alonsomora2015auro}.
 
-\textbf{Global motion planning}.
-Off-line non-convex optimizations include a mixed integer approach~\cite{Mellinger:2012fi, Kushleyev:2012wy} and a discretized linear temporal logic approach~\cite{Saha:2014vi}. They provide global guarantees but scale poorly with the number of robots. 
-Non-convex problems can also be solved via Sequential Convex Programming, which has recently been employed~\cite{augugliaro12} to compute collision-free trajectories for multiple UAVs in obstacle-free environments. An iterative message passing algorithm~\cite{Bento:2013td}. Integer linear program for planning on graphs~\cite{Yu:2013ij}.
+Centralized approaches have also been explored, where collision-free commands are computed for the whole team of robots simultaneously.
+\cite{Raghunathan:2004ga} converts the centralized optimal control problem to a finite dimensional nonlinear program (NLP) by the use of collocation on finite elements and solves it by the use of an interior point algorithm.
+Optimization methods also include a mixed integer linear program (MILP) with constraints in dynamics~\cite{Kuwata:2007vq}. Alternatively, \cite{alonsomora13icra} describes an optimization in velocity space with motion constraints conned as either a non-convex MIQP or its linearized QP version, which can be solved efficiently for large teams of agents.
+
+\subsubsection{Global motion planning}
+optimization-based approaches for computing global trajectories for teams of robots are typically centralized and computationally involved due to the non-convex nature of the problem. These approaches optimize over a set of intermediate states from the initial configuration to the goal configuration.
+\cite{Mellinger:2012fi} described a Mixed Integer approach and applied it to navigating small teams of quadrotors. As an alternative,~\cite{Saha:2014vi} formulated the problem in discretized linear temporal logic. These methods provide global guarantees but scale poorly with the number of robots. \cite{Yu:2013ij} reduces the problem to planning on a graph and presents an optimal yet computationally efficient Integer linear program.
+
+For computational efficiency, but still in continuous space, algorithms converging to a local optimum of the optimization have been proposed. These include, a Sequential Convex Program~\cite{augugliaro12} employed to compute collision-free trajectories for multiple UAVs in obstacle-free environments and an ADMM-based iterative message passing algorithm~\cite{Bento:2013td} which can be easily parallelized.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Formation planning}
 
-\textbf{Formation planning}.
-Convex optimization frameworks for navigating in formation include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, distributed quadratic optimization~\cite{AlonsoMora:2015wi} without global coordination and limited adaptation of the formation,
-% polynomial signals as trajectories to optimize~\cite{} with only a few robots and simple obstacles, and 
-and second order cone programming~\cite{Derenick:ha} which triangulates the free 2D space to compute the optimal motion in formation. Model predictive control has also been explored~\cite{Dunbar:2002fh}.
+\subsubsection{Formation control}
+Building on concepts of optimal control, \textbf{CHECK!!!} Rigidity theory~\cite{Eren.Belhumeur.ea:02} and Morse theory~\cite{Anderson:11} have been primarily used for formation control. These theories have been successful in establishing (global) stability of a few specific formations, such as triangular formations~\cite{Cao.Morse.ea:11} and tetrahedral formations~\cite{Anderson.Yu.ea:10}. Decentralized consensus for formation control has also been extensively studied, for example by~\cite{montijano} who solves a Quadratic Program.
 
-\textbf{Formation control} Rigidity theory~\cite{Eren.Belhumeur.ea:02} and Morse theory~\cite{Anderson:11} have been primarily used for formation control. These theories have been successful in establishing (global) stability of a few specific formations, e.g., triangular formations~\cite{Cao.Morse.ea:11}, tetrahedral formations~\cite{Anderson.Yu.ea:10}, etc.
+On the other hand,~\cite{alonsomora12ijrr} described a centralized method for pattern formation which combines optimization methods for local collision avoidance, goal assignment and optimal coverage and applied it to teams of tens of robots.
+
+\subsubsection{Formation planning}
+Convex optimization frameworks for navigating in formation include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, second order cone programming~\cite{Derenick:ha} which triangulates the free 2D space to compute the optimal motion in formation, centralized linear optimization~\cite{guy2015} with velocity obstacles and distributed quadratic optimization~\cite{AlonsoMora:2015wi} in velocity space for manipulation of deformable objects. Model predictive control has also been explored~\cite{Dunbar:2002fh} for formation planning.
+
+A non-convex centralized method was described by~\cite{AlonsoMora:2015iros}, which formulates a constrained optimization with avoidance of dynamic obstacles and formation reconfiguration and solves it via a Sequential Convex Program which scales well with the number of robots.
+
+\textbf{ADD NAVIGATION FUNCTIONS NORA}
+
+
+
+
+
+
+
+
+
+

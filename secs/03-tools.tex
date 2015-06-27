@@ -67,7 +67,7 @@ General non-linear problems, where $\x \in \R$, that can not be formulated as a 
 \subsubsection{Optimization with integer variables}
 Consider the case where some of the variables $\x_j$ take integer, $\x_j \in \N$, or typically binary, $\x_j \in \{0,1\}$, values.
 %For integer programs with only binary variables, a solution can be found via explicit enumeration.
-This defines a \emph{Mixed Integer Progam MIP}, namely MILP or MIQP depending on if the cost and constraints are linear or quadratic. This problem is inherently non convex and can be solved via branch-and-bound with search heuristics, where several LPs/QPs are solved for changing values of the binary variables.
+This defines a \emph{Mixed Integer Progam MIP}, namely MILP or MIQP depending on if the cost and constraints are linear or quadratic. This problem is inherently non convex and can be solved via branch-and-bound with search heuristics, where several LPs/QPs are solved for changing values of the binary variables. A special case are Integer Linear Programs (ILP) which can be formulated as a \emph{network flow} problem and by solving an equivalent LP the optimal integer solution is found,
 
 
 

@@ -2,7 +2,7 @@
 
 \section{Problem definition}\label{sec:2}
 
-We describe four important problems for multi-robot teams. First, consider $m$ mobile agents. 
+We describe four important problems for multi-robot teams. Consider $m$ mobile agents. 
 
 \subsection{Multi-robot motion planning}
 Let $\z^{ini}_i$ denote the initial state of each agent $i$ and consider a desired set of final configurations $\{\z^{fin}_1,  \dots, \z^{fin}_m \}$ embedded in a cost field.
@@ -17,7 +17,7 @@ A formation $\mathcal{F} = \{ \z_1,  \dots, \z_m \}$ is defined as a set of mobi
 Two main problems have been studied. First, convergence to a target formation from an arbitrary initial configuration of the robots. And, second, collision-free navigation of the agents in a workspace while maintaining a target formation. Furthermore, the mobile agents might be subject to kinematic or dynamic constraints limiting their motion.
 
 \subsection{Task assignment}
-Consider $m$ mobile agents and $n$ tasks, where in general $n > m$. Let $a_i$, $i \in \until{m}$, denote the assignment of the $i$the vehicle. For example, $a_1=2$ means that vehicle $1$ is assigned to task $2$. In static assignment problems, the suitability of a given assignment profile $a$ is given by utility associated with the assignment profile, denoted as $U(a)$. The formulation of utility functions incorporates, e.g., cumulative distance traveled by all vehicles, and even infeasibility of a given assignment profile. The static assignment problem is therefore a combinatorial optimization problem concerned with selecting an assignment profile that maximizes the utility.  
+Consider $n$ tasks, where in general $n > m$. Let $a_i$, $i \in \until{m}$, denote the assignment of the $i$the vehicle. For example, $a_1=2$ means that vehicle $1$ is assigned to task $2$. In static assignment problems, the suitability of a given assignment profile $a$ is given by utility associated with the assignment profile, denoted as $U(a)$. The formulation of utility functions incorporates, e.g., cumulative distance traveled by all vehicles, and even infeasibility of a given assignment profile. The static assignment problem is therefore a combinatorial optimization problem concerned with selecting an assignment profile that maximizes the utility.  
 
 The dynamic task assignment problem concerns with the setting when task locations, vehicle capabilities, etc. are all time varying. In this case, the performance is measured by a time-aggregated function.  
 
