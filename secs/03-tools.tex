@@ -74,5 +74,10 @@ Consider the case where some of the variables $\x_j$ take integer, $\x_j \in \N$
 %For integer programs with only binary variables, a solution can be found via explicit enumeration.
 This defines a \emph{Mixed Integer Progam MIP}, namely MILP or MIQP depending on if the cost and constraints are linear or quadratic. This problem is inherently non convex and can be solved via branch-and-bound with search heuristics, where several LPs/QPs are solved for changing values of the binary variables. A special case are Integer Linear Programs (ILP) which can be formulated as a \emph{network flow} problem and by solving an equivalent LP the optimal integer solution is found,
 
+\subsection{Combinatorial optimization}
 
+Combinatorial optimization consists of finding an optimal object from a finite set of objects~\cite{Ahuja:1993tk}. In many such problems, exhaustive search is not feasible due to the large cardinality of the set and suboptimal algorithms must be devised. 
+A canonical one is the Greedy algorithm, which performs well on some optimization problems, but can do poorly on others.
+
+Some common problems involving combinatorial optimization are the traveling salesman problem ("TSP") and the minimum spanning tree problem ("MST").
 

@@ -5,17 +5,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Task assignment}
 
-\subsubsection{Goal assignment}
-Good overview with taxonomy and link to optimization~\cite{Gerkey:2004il}. For ST-SR (single robot per task and single task per robot) optimal~\cite{kuhn55} or suboptimal auction algorithm~\cite{Bertsekas:1992wx}.
-Combined with motion planning towards concurrent planning and assignment~\cite{Turpin:2014bu} and with local collision avoidance and optimal coverage towards pattern formation with large teams of robots~\cite{alonsomora12ijrr}.
+Task assignment is closely related to the problem defined by combinatorial optimization.
+A good overview with taxonomy on task assignment and its link to optimization is given in~\cite{Gerkey:2004il}. The simplest and most common case for task assignment is that of single robot per task and single task per robot, or ST-SR. For this case both optimal~\cite{kuhn55} and suboptimal algorithms~\cite{Bertsekas:1992wx} exist.
+ST-SR has been combined with motion planning towards concurrent planning and assignment~\cite{Turpin:2014bu} and with local collision avoidance and optimal coverage towards pattern formation with large teams of robots~\cite{alonsomora12ijrr}.
 
-\subsubsection{Dynamic vehicle routing} \cite{Bullo.Frazzoli.ea:PIEEE10}
+A similar problem is that of dynamic vehicle routing (DVR), that is, for the automatic planning of optimal multivehicle routes to perform tasks that are generated over time by an exogenous process. For a survey paper refer to~\cite{Bullo.Frazzoli.ea:PIEEE10}. Solutions live in the space of combinatorial optimization and are related to the traditional TSP.
+
+Related to the problem of task assignment is that of rebalancing mobility-on-demand vehicle fleets, such as single-trip car-sharing. If a graph network is considered the problem can be posed as a linear program~\cite{Smith:2013fa}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Surveillance and monitoring tasks}
 
-\subsubsection{Miscellaneous}
-Iterative optimization for optimal coverage~\cite{cortes04} and~\cite{Schwager:2009fz}. Rebalancing and mobility-on-demand formulated as linear programs~\cite{Smith:2013fa}.
+\subsubsection{Optimal coverage}
+An iterative optimization via the Centroidal Voronoi Tesselation was introduced by~\cite{cortes04} and later extended for decentralized multi-robot control by~\cite{Schwager:2009fz}.
 
-\subsubsection{Rendezvous/ Flocking/ Consensus} The basic idea is the alignment of states (position, heading angle, memory state). Key references are \cite{Cortes.Martinez.ea:06,Jadbabaie.Lin.ea:03}.
+\subsubsection{Rendezvous/ Flocking/ Consensus} The basic idea is to achieve the alignment of states (position, heading angle, memory state) in a decentralized system. Key references include \cite{Cortes.Martinez.ea:06} and \cite{Jadbabaie.Lin.ea:03}.
 
