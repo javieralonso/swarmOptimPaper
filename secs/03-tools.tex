@@ -23,12 +23,17 @@ In the discrete time and infinite horizon formulation, the dynamic programming f
 \end{align*}
 
 The dynamic programming approach involves solving for a value function $V(x^0)$ as a function of the initial state $x^0$ that satisfies the Bellman or dynamic programming equation:
-$$
-V(x^0)=\inf \left\{r (x^0,w) + V(Ax^0+B w), \, \, w \in \mc U, \, Ax^0 + Bw \in \mc Z  \right \}.
-$$
+\e
+\begin{array}{rl}
+V(x^0)=\inf & \{ r (x^0,w) + V(Ax^0+B w), w \in \mc U, \\
+		& \,\, Ax^0 + Bw \in \mc Z  \}.
+		\nonumber
+ \end{array}
+\ee
+
 The optimal control $u$ at time $t$ is given by 
 $$
-u^*(t) = \argmin_{w \in \mc U, \, A x(t) + B w \in \mc X} \left(r(x(t),w) + V(A x(t) + Bw) \right)
+u^*(t) = \underset{w \in \mc U, \, A x(t) + B w \in \mc X} {\argmin} \left(r(x(t),w) + V(A x(t) + Bw) \right)
 $$
 
 \subsubsection{Model Predictive Control}

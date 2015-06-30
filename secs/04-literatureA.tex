@@ -13,7 +13,7 @@ Next, we give an overview of the state of the art in optimization and optimal co
 A large body of decentralized collision avoidance approaches exist for multi-agent scenarios.
 Optimal control strategies include~\cite{Hoffmann:2008vl}, which uses a rule-based switching control law derived using optimal control and reachability analysis for systems with second order dynamics and acceleration constraints.
 Alternatively, decentralized nonlinear model predictive control using potential functions for collision avoidance~\cite{Shim:2003ih} has also been explored.
-As an alternative to traditional control approaches, \cite{vandenberg09} presented a method where agents share the avoidance effort, solved via a Linear Program in velocity space. This method was later extended to agents with dynamics by~\cite{snape09, alonsomora10dars, AlonsoMora:2014kb} and~\cite{alonsomora2015auro}.
+As an alternative to traditional control approaches, \cite{vandenberg09} presented a method where agents share the avoidance effort, solved via a Linear Program in velocity space. This method was later extended to agents with dynamics by~\cite{snape09, alonsomora10, AlonsoMora:2014kb} and~\cite{alonsomora2015auro}.
 
 Centralized approaches have also been explored, where collision-free commands are computed for the whole team of robots simultaneously.
 \cite{Raghunathan:2004ga} converts the centralized optimal control problem to a finite dimensional nonlinear program (NLP) by the use of collocation on finite elements and solves it by the use of an interior point algorithm.
@@ -28,17 +28,20 @@ For computational efficiency, but still in continuous space, algorithms convergi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Formation planning}
 
-\subsubsection{Formation control}
-Building on concepts of optimal control, \textbf{CHECK!!!} Rigidity theory~\cite{Eren.Belhumeur.ea:02} and Morse theory~\cite{Anderson:11} have been primarily used for formation control. These theories have been successful in establishing (global) stability of a few specific formations, such as triangular formations~\cite{Cao.Morse.ea:11} and tetrahedral formations~\cite{Anderson.Yu.ea:10}. Decentralized consensus for formation control has also been extensively studied, for example by~\cite{montijano} who solves a Quadratic Program.
+We subdivide the works into two categories, those converned with achieving a target formation and those planning the motion of a team of robots in formation.
 
-On the other hand,~\cite{alonsomora12ijrr} described a centralized method for pattern formation which combines optimization methods for local collision avoidance, goal assignment and optimal coverage and applied it to teams of tens of robots.
+\subsubsection{Formation control}
+Rigidity theory~\cite{Eren.Belhumeur.ea:02} and Morse theory~\cite{Anderson:11} have been successful in establishing (global) stability of a few specific formations, such as triangular formations~\cite{Cao.Morse.ea:11} and tetrahedral formations~\cite{Anderson.Yu.ea:10}.
+Towards a broader range of formations,~\cite{Ji:2006tr} presented a leader follower approach with results on controllability and optimal control in obstacle-free environments.
+%, extension of their previous work on a model independent coordination strategy for formation control~\cite{Egerstedt:2001jr}.
+For centralized systems, \cite{alonsomora12ijrr} described a method for pattern formation and reconfiguration where the robot positions are obtained via optimal coverage of the pattern and optimally assigned to the robots minimizing the sum of travelled distances. Collision-free motion was achieved via a distributed optimization in velocity space~\cite{alonsomora10}.
+
+In order to avoid centralized decision-making or leader election, decentralized consensus between the agents must be achieved. For example~\cite{Montijano:2014bn} formulates a distributed quadratic optimization for planar formations.
 
 \subsubsection{Formation planning}
-Convex optimization frameworks for navigating in formation include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, second order cone programming~\cite{Derenick:ha} which triangulates the free 2D space to compute the optimal motion in formation, centralized linear optimization~\cite{guy2015} with velocity obstacles and distributed quadratic optimization~\cite{AlonsoMora:2015wi} in velocity space for manipulation of deformable objects. Model predictive control has also been explored~\cite{Dunbar:2002fh} for formation planning.
+Convex optimization frameworks for navigating in formation include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, second order cone programming~\cite{Derenick:ha} which triangulates the free 2D space to compute the optimal motion in formation, centralized linear optimization~\cite{Karamouzas:wm} with velocity obstacles and distributed quadratic optimization~\cite{AlonsoMora:2015wi} in velocity space for manipulation of deformable objects. Model predictive control has also been explored~\cite{Dunbar:2002fh} for formation planning.
 
-A non-convex centralized method was described by~\cite{AlonsoMora:2015iros}, which formulates a constrained optimization with avoidance of dynamic obstacles and formation reconfiguration and solves it via a Sequential Convex Program which scales well with the number of robots.
-
-\textbf{ADD NAVIGATION FUNCTIONS NORA}
+A non-convex centralized method was described by~\cite{alonsomora15iros}, which formulates a constrained optimization with avoidance of dynamic obstacles and formation reconfiguration and solves it via a Sequential Convex Program which scales well with the number of robots.
 
 
 
