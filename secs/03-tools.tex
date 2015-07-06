@@ -61,16 +61,16 @@ The goal of an optimization problem is to compute the values of a set of variabl
 
 Optimization problems are classified depending on the type of variables and constraints. We name some of the most common ones. For further reading, \citet{Nocedal:2006uv} provides a good overview on numerical optimization, \citet{Bertsekas:1999ua} in non-linear programming and \citet{Boyd:2004uz} in convex optimization. A large number of state of the art solvers exist, popular ones include OOQP, CPLEX, GUROBI, MOSEK and CVXGEN.
 
-\subsubsection{Convex optimization with continuous variables $\x \in \R$}
+\subsubsection{Convex optimization with continuous variables $\x \in \R^\nu$}
 This family of problems can be solved extremely efficiently.
 These can be further classified into \emph{Linear programming LP} if the cost and constraints are linear,
 \emph{Quadratic programming QP} if the cost and constraints are quadratic and convex and \emph{Semi-Definite Programming SDP} if a linear objective function is minimized over the intersection of the cone of positive semidefinite matrices with an affine space.
 
 \subsubsection{Non-convex optimization with continuous variables}
-General non-linear problems, where $\x \in \R$, that can not be formulated as a QP or SDP can be solved via \emph{Gradient-based Methods} or \emph{Sequential Convex Programming SCP} where a local solution is found by iteratively linearizing the problem. A global solution can be found via heuristic or probabilistic \emph{search techniques}.  
+General non-linear problems, where $\x\in\R^\nu$, that can not be formulated as a QP or SDP can be solved via \emph{Gradient-based methods} or \emph{Sequential Convex Programming SCP} where a local solution is found by iteratively linearizing the problem. A global solution can be found via heuristic or probabilistic \emph{search techniques}.  
 
-\subsubsection{Optimization with integer variables}
-Consider the case where some of the variables $\x_j$ take integer, $\x_j \in \N$, or typically binary, $\x_j \in \{0,1\}$, values.
+\subsubsection{Non-convex optimization with integer variables}
+Consider the case where some of the variables $x_j$ take integer, $x_j \in \N$, or typically binary, $x_j \in \{0,1\}$, values.
 %For integer programs with only binary variables, a solution can be found via explicit enumeration.
 This defines a \emph{Mixed Integer Progam MIP}, namely MILP or MIQP depending on if the cost and constraints are linear or quadratic. This problem is inherently non convex and can be solved via branch-and-bound with search heuristics, where several LPs/QPs are solved for changing values of the binary variables. A special case are Integer Linear Programs (ILP) which can be formulated as a \emph{network flow} problem and by solving an equivalent LP the optimal integer solution is found,
 
