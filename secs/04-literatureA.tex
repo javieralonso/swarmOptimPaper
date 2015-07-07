@@ -41,8 +41,8 @@ In order to avoid centralized decision-making or leader election, decentralized 
 \subsubsection{Formation planning}
 Convex optimization frameworks for navigating in formation include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, second order cone programming~\cite{Derenick:ha} which triangulates the free 2D space to compute the optimal motion in formation, centralized linear optimization~\cite{Karamouzas:wm} with velocity obstacles and distributed quadratic optimization~\cite{AlonsoMora:2015wi} in velocity space for manipulation of deformable objects. Model predictive control has also been explored~\cite{Dunbar:2002fh} for formation planning.
 
-Non-convex centralized approaches have also been explored. For off-line trajectory generation,~\cite{Kushleyev:2012wy} proposed to divide the robots into teams, plan trajectories for each team (with fixed formation) via a MIP~\cite{Mellinger:2012fi} and rely on local controllers for navigation of the individual robots within each team.
-In contrast, a real-time method for local navigation was described by~\cite{alonsomora15iros}, which formulates a constrained optimization with avoidance of dynamic obstacles and formation reconfiguration and solves it via a Sequential Convex Program which scales well with the number of robots.
+For increased richness of the solution set, a non-convex optimization can be directly formulated. For centralized off-line trajectory generation,~\cite{Kushleyev:2012wy} proposed to divide the robots into teams, plan trajectories for each team (with fixed formation) via a MIP~\cite{Mellinger:2012fi} and rely on local controllers for navigation of the individual robots within each team.
+In contrast, a real-time method for centralized local navigation was described by~\cite{alonsomora15iros}, which formulates a constrained optimization with avoidance of dynamic obstacles and formation reconfiguration and solves it via a Sequential Convex Program which scales well with the number of robots.
 
 
 
