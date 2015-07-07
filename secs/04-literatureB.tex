@@ -5,7 +5,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Task assignment}
 Task assignment is closely related to the problem defined by combinatorial optimization.
-A good overview with taxonomy on task assignment and its link to optimization is given in~\cite{Gerkey:2004il}. The simplest and most common case for task assignment is that of single robot per task and single task per robot, or ST-SR. For this case both optimal~\cite{kuhn55} and suboptimal algorithms~\cite{Bertsekas:1992wx} exist. \ksmargin{is \cite{Bertsekas:1992wx} about task assignment ?}
+A good overview with taxonomy on task assignment and its link to optimization is given in~\cite{Gerkey:2004il}. The simplest and most common case for task assignment is that of single robot per task and single task per robot, or ST-SR. For this case and given a cost matrix with the cost of assigning each robot to each task, an optimal assignment can be found via the Hungarian algorithm~\cite{kuhn55}. Alternatively, a suboptimal solution within a specified bound can be obtained via the Auction algorithm~\cite{Bertsekas:1992wx}.
+
+An instance of ST-SR is that of goal assignment for a homogeneous team of robots. For this, motion planning and assignment are typically decoupled, as in~\cite{alonsomora12ijrr} where a local planner is employed to drive the robots towards the goals.
+Recently, the goal assignment for a team of robots has been combined with motion planning towards concurrent planning and assignment~\cite{Turpin:2014bu}.
 
 The general formulation where there are possibly more robots than the number of tasks, and when the cost of assignment is related to the geographical distance between the task locations is studied within the framework of \emph{vehicle routing}. A good overview of the static scenario, i.e., when no new tasks during the execution of the mission, is provided in \cite{PT-DV:01}. In general, most of the available literature on
 routing for robotic networks focuses on static environments and does not
@@ -44,9 +47,6 @@ adaptive and decentralized algorithms~\cite{Pavone.Frazzoli.ea:11,
   Enright.Savla.ea:JGCD09}, limited sensing range~\cite{Enright.Frazzoli:06}, and team
 forming \cite{Smith.Bullo:09}, mobility-on-demand vehicle fleets~\cite{Smith:2013fa}, and even integration of humans in the design
 space \cite{Savla.Temple.ea:CDC08}.
-
-
-ST-SR has been combined with motion planning towards concurrent planning and assignment~\cite{Turpin:2014bu} and with local collision avoidance and optimal coverage towards pattern formation with large teams of robots~\cite{alonsomora12ijrr}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
