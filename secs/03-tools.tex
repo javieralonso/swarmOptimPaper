@@ -76,9 +76,11 @@ Consider the case where some of the variables $x_j$ take integer, $x_j \in \N$, 
 This defines a \emph{Mixed Integer Progam MIP}, namely MILP or MIQP depending on if the cost and constraints are linear or quadratic. This problem is inherently non convex and can be solved via branch-and-bound with search heuristics, where several LPs/QPs are solved for changing values of the binary variables. A special case are Integer Linear Programs (ILP) which can be formulated as a \emph{network flow} problem and by solving an equivalent LP the optimal integer solution is found,
 
 \subsection{Combinatorial optimization}
+Combinatorial optimization is an area of discrete mathematics that concerns itself with 
+selecting a combination of a finite number of objects that minimizes a given cost function. In principle, while one can enumerate all possible combinations and pick one with minimum cost, such an approach is computationally intensive when the number of objects is large, as is the case in many practical scenarios. The classical topics that are relevant from multi-robot systems perspective are minimum spanning trees, traveling salesperson problems, shortest paths, network flows and matchings. Most of these problems are NP-hard, i.e., a polynomial-time algorithm is unlikely to exist. However, in many cases, there exist approximation algorithms with provable performance guarantees. We refer to \cite{Korte.Vygen:02} for further details.
 
-Combinatorial optimization consists of finding an optimal object from a finite set of objects~\cite{Ahuja:1993tk}. In many such problems, exhaustive search is not feasible due to the large cardinality of the set and suboptimal algorithms must be devised. 
-A canonical one is the Greedy algorithm, which performs well on some optimization problems, but can do poorly on others.
-
-Some common problems involving combinatorial optimization are the traveling salesman problem ("TSP") and the minimum spanning tree problem ("MST").
+%Combinatorial optimization consists of finding an optimal object from a finite set of objects~\cite{Korte.Vygen:02}. In many such problems, exhaustive search is not feasible due to the large cardinality of the set and suboptimal algorithms must be devised. 
+%A canonical one is the Greedy algorithm, which performs well on some optimization problems, but can do poorly on others.
+%
+%Some common problems involving combinatorial optimization are the traveling salesman problem ("TSP") and the minimum spanning tree problem ("MST").
 
