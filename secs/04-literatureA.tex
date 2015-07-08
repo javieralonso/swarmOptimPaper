@@ -28,18 +28,20 @@ For computational efficiency, but still in continuous space, algorithms convergi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Formation planning}
 
-We subdivide the works into two categories. \emph{Formation control}: works concerned with achieving a target formation in an obstacle-free environment. And, \emph{formation planning}: works concerned with planning the motion of a team of robots in formation in an environment with obstacles.
+We subdivide the works into two categories. \emph{Formation control}, where works are concerned with achieving a target formation in an obstacle-free environment. And, \emph{formation planning} were works are concerned with planning the motion of a team of robots in formation in an environment with obstacles.
 
 \subsubsection{Formation control}
 Rigidity theory~\cite{Eren.Belhumeur.ea:02} and Morse theory~\cite{Anderson:11} have been successful in establishing (global) stability of a few specific formations, such as triangular formations~\cite{Cao.Morse.ea:11} and tetrahedral formations~\cite{Anderson.Yu.ea:10}.
 Towards a broader range of formations,~\cite{Ji:2006tr} presented a leader follower approach with results on controllability and optimal control in obstacle-free environments. An alternative leader-based approach for distributed formation control, where robots minimize the deviation from predefined relative distances via a quadratic program, was presented by~\cite{Turpin:2012uh} and implemented in a team of quadrotors.
+A generalized constrained and nonlinear MPC formulation with guaranteed stability has been detailed by~\cite{Dunbar:2002fh} for asymptotic stabilization of multiple vehicles to an equilibrium formation.
+
 %, extension of their previous work on a model independent coordination strategy for formation control~\cite{Egerstedt:2001jr}.
 For centralized systems, \cite{alonsomora12ijrr} described a method for pattern formation and reconfiguration where the robot positions are obtained via optimal coverage of the pattern. Recently,~\cite{Ritz:uc} achieved centralized coordination of a team of three quadrotors carrying a net by defining an optimal control law.
 
 In order to avoid centralized decision-making or leader election, decentralized consensus between the agents must be achieved. For example~\cite{Montijano:2014bn} formulates a distributed quadratic optimization for planar formations.
 
 \subsubsection{Formation planning}
-Convex optimization frameworks for navigating in formation include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, second order cone programming~\cite{Derenick:ha} which triangulates the free 2D space to compute the optimal motion in formation, centralized linear optimization~\cite{Karamouzas:wm} with velocity obstacles and distributed quadratic optimization~\cite{AlonsoMora:2015wi} in velocity space for manipulation of deformable objects. Model predictive control has also been explored~\cite{Dunbar:2002fh} for formation planning.
+Convex optimization frameworks for navigating in formation while avoiding collisions with obstacles include semidefinite programming~\cite{Derenick:2010cc} which considers only 2D circular obstacles, second order cone programming for formation reconfiguration~\cite{Derenick:2007wb} which considers circular formations and triangulates the free 2D space to compute the optimal motion in formation, centralized linear optimization~\cite{Karamouzas:wm} with velocity obstacles and distributed quadratic optimization~\cite{AlonsoMora:2015wi} in velocity space for manipulation of deformable objects. 
 
 For increased richness of the solution set, a non-convex optimization can be directly formulated. For centralized off-line trajectory generation,~\cite{Kushleyev:2012wy} proposed to divide the robots into teams, plan trajectories for each team (with fixed formation) via a MIP~\cite{Mellinger:2012fi} and rely on local controllers for navigation of the individual robots within each team.
 In contrast, a real-time method for centralized local navigation was described by~\cite{alonsomora15iros}, which formulates a constrained optimization with avoidance of dynamic obstacles and formation reconfiguration and solves it via a Sequential Convex Program which scales well with the number of robots.
